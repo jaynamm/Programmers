@@ -1,19 +1,26 @@
-import java.util.*;
+#include <string>
+#include <string.h>
+#include <vector>
+#include <algorithm>
+#include <iostream>
 
-class Solution {
-    public String solution(String[] participant, String[] completion) {
-        String answer = "";
+using namespace std;
+
+string solution(vector<string> participant, vector<string> completion) {
+    string answer = "";
+    
+    sort(participant.begin(), participant.end());
+    sort(completion.begin(), completion.end());
         
-        Arrays.sort(participant);
-        Arrays.sort(completion);
-        int i=0;
-        for(i=0; i<completion.length; i++) {
-            if(!participant[i].equals(completion[i])) {
-                answer = participant[i];
-                return answer;
-            }
+    int i=0;
+    for(i=0; i<completion.size(); i++){
+        if(participant[i] != completion[i]){
+            answer = participant[i];
+            return answer;
         }
-        answer = participant[i];
-        return answer;
     }
+    
+    answer = participant[i];
+    
+    return answer;
 }
