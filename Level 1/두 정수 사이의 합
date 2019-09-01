@@ -1,0 +1,16 @@
+#include <string>
+#include <vector>
+#include <cmath>
+
+using namespace std;
+
+long long solution(int a, int b) {
+    long long answer = 0;
+    
+    int mini = min(a, b);
+    int maxi = max(a, b);
+    
+    for(int i=mini; i<=maxi; i++) answer += i;
+    
+    return answer;
+}
